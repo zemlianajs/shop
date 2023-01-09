@@ -81,7 +81,12 @@ const createProducts = (data) => {
     BtnProductCart.className = `product__cart`;
     BtnProductCart.setAttribute(`data-id`, `${data.id}`);
     BtnProductCart.innerHTML = `<img src="images/shopping-cart.png" alt="shopping cart" height="20">`;
-
+    BtnProductCart.href = `login.html`;
+    if (!logInUser) {
+        BtnProductCart.addEventListener(`click`, e => {
+            document.location.href = `login.html`
+        })
+    }
     categoryContainer.append(product);
     product.append(productImg);
     product.append(productTitle);
